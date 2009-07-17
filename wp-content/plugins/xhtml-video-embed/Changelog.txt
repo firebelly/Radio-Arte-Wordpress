@@ -1,0 +1,64 @@
+Future plans (v0.4):
+
+	* Make it a cross-platform plug-in. This means: different bindings in order to use the same source tree for WordPress, FlatPress and LightPress. This is just planned at the moment, thus I don't know how the final code will look like or what blog engines it will completely support.
+	* Implement the "ugly support" for embeding videos in order to support the services that aren't smart enough to provide enough data from the input URL. Example: slide.com (but other "ugly" services are planned as well).
+	* Implement an Access Control List for the enabled features based on user level (or role).
+
+--------------------
+
+Changelog:
+
+v0.3.6	* 22-Dec-2008 * Security update: the XHTML Video Embed administration panel is only avaiable for the WordPress Administrator (or for the older WordPress releases, the users with level 10). The reason for the high requirement is simple: the SWF embedding should only be allowed by the administrator of the WordPress installation. Even more, should be granted only if all the users with posting capabilities can be trusted. Anyway, even the subscribers can enable/disable the features by using the versions pre v0.3.6, thus it's highly recommended to update. I've also implemented the possibility to completely override the Mogulus (altered) unified sizes. The override attributes, w and h can be written in any order since this version. The number of spaces between the embedding tag and the attributes, as well as the space between the attributes can be larger than a single space char, although I don't recommend it as common practice. This feature was implemented in order to avoid certain issues when the syntax isn't strict, thus the plug-in used to fail (apparently).
+		* 23-Dec-2008 * For the reasons described above, the SWF functionality is disabled by default. Fixing some non-fatal backward compatibility bug which made the plug-in to enable just part of the supported stuff. Rewriting part of the code in order to avoid some internal data structures useless processing. Adding the new override attributes functionality to the swc_the_video_excerpt() as well.
+		* 24-Dec-2008 * Adding a refresh solution in order to automatically reload the plug-in if a post v0.3.5 update was made as the first load is always broken since the admin panel is forcibly turned off and on. Fixing the older version upgrade to the latest version (some services weren't activated). Added MyVideo (http://myideo.de/) support.
+
+v0.3.5	* 14-Oct-2008 * After a quite long absence of yours truly, XVE gets these features: Veevo (aka http://veevo.ro/, thanks to the Dream Production team, http://www.dreamproduction.ro/blog/, for implementing this feature into a XVE mod and making it public as the common sense and the GPLv2 requires); GameTrailers user video support.
+		* 14-Dec-2008 * Testing the WordPress v2.7 compatibility. No issues here. Fixing the YouTube HD support (requested by robocub). Fixing the YouTube fullscreen functionality for the embedded videos (thanks to Joris, http://www.itelevision.nl/ for the suggested fix). Fixing the Google Video player fullscreen and script access behavior (reported by nivosh, http://www.emetaheret.org.il/).
+		* 16-Dec-2008 * Adding CollegeHumor support as requested by Joris, http://www.itelevision.nl/ - now it's official ;-). If the object doesn't load for various reasons, then a warning message is displayed. Unfortunately the feature requested by BarrieVideoTours.com, http://www.barrievideotours.com/ wasn't implemented as it requires JavaScript in order to use the embedded media player if someone wants to specify a minimum flash version. I also implemented several code optimizations which reduce the database queries.
+		* 18-Dec-2008 * Implemented the get_the_content() support into the new swc_the_video_excerpt() function.
+		* 19-Dec-2008 * Improved Trilulilu support (all services). The plug-in uses the new Trilulilu embed player instead of the legacy player. Fixed the Trilulilu Audio and Trilulilu Image suport. Since now, embedding an audio/image file from a user with numbers in his/hers username is possible. Most of the previous versions are broken (since the input filtering has been coded). Finished the implementation of swc_the_video_excerpt(). Small code tweaks. 
+
+v0.3.4	* 24-Aug-2008 * Adding the support for Capped TV (thanks to Vincent for the suggestion, http://polymathprogrammer.com/), GameTrailers (thanks to J for the suggestion, he didn't provide a blog URL tho).
+
+v0.3.3	* 16-Jun-2008 * Adding the Dutch localization (thanks again to �lvaro). Making some other small code tweaks (especially for the Mogulus support). This IS the v0.3.3 release. If you already downloaded v0.3.2.1 since yesterday, then you don't have the latest code. There was an issue with the WordPress validation of the readme.txt file. As a consequence, the development version was accidentally marked as released. Another change is the embedded FLV player which has been replaced. JW FLV MEDIA PLAYER is a great piece of code, but it has a too restrictive license. From now on, FLV Player, http://flv-player.net/, is going to be the embedded media player which is packaged with XVE.
+
+v0.3.2	* 15-Jun-2008 * Small code tweaks. Added Mogulus embed support and Spanish localization. Thanks again to �lvaro for the suggestions and for the localization file.
+
+v0.3.1	* 09-Jun-2008 * Fixing the plugin activation issue. A security policy made the plugin activation to be impossible. Thanks to �lvaro (http://nv1962.net/) for reporting this bug. Fixing the Trilulilu Image support while simplifying the function which returns the converted URLs.
+
+v0.3	* 06-Apr-2008 * Implemented the backward compatibility function; finished the new datastructure scheme.
+		* 08-Apr-2008 * Implemented the new data structures to the public side of the plug-in. Faster processing of the suported video services due to more optimized code for the supported services list and the URL conversion which has less regular expressions.
+		* 15-Apr-2008 * Implemented the backward compatibility data structures for the admin panel. Removed the historical function which managed the old and bloated options. Defined the new options arrays, even though they are still not connected to the existing admin interface.
+		* 18-Apr-2008 * New options processor based on data structures rather than hardcoded interface. Now only the service list is hardcoded, while the processing is made by a dynamic loop which makes the further development of the plug-in to be easier. The frontend is not implemented though. Started to add basic support for localization.
+		* 01-May-2008 * After being gone for a while, I finally got back and implemented the loader for the localization but there's much work to do.
+		* 07-May-2008 * Finished the bootstrap loader for the language files. Added Romanian besides English, but the languages are far from complete.
+		* 04-Jun-2008 * Merging the FLV support which was included into v2.4.x (developed after the v0.3 development stage has started). Finished the language defining at first usage.
+		* 05-Jun-2008 * Finished the functions which create the admin panel sections and the video services items. Finished the database options saving engine. The sizes and the misc options are still on defaults as the frontend is not implemented yet. Some of the video services lack some information as the text wasn't placed within the language files, yet. The language saving function has been patched against malformed form submits.
+		* 07-Jun-2008 * Added another small optimization tweak to the flash object function. Finished part of the language support.
+		* 08-Jun-2008 * Finished the unified custom size override by using the w and the h parameters within the tag. Thanks to Manuel, �stheticrew (http://aestheticrew.com/) for suggesting it. Adding support for YouTube high definition content. This support is triggered if you use proper URLs though as this feature is not fully supported by all the videos. Thanks again to Manuel, �stheticrew, for suggesting this feature. Finished the language packs, the unified sizes functionality, and the miscellaneos options. Defined a security option which blocks the access to the xhtml-video-embed.php file by direct access. Added Jumpcut support. Thanks to BradyDale (http://www.thistoowillpass.com/) for suggesting this feature.
+
+--> Branched
+v0.2.4.2* 04-Jun-2008 * Small fix for the installation behavior of the FLV Media Player. The previous release requires you to place the file within a subdirectory of wp-content/plugins. This release allows you to place the xhtml-video-embed.php and the mediaplayer.swf within wp-content/plugins - although I don't recommend it.
+
+v0.2.4.1* 04-Jun-2008 * This release is also about the FLV embedding. Now the install directory might have any name in order to make the feature to be OK. The only condition for the mediaplayer.swf to be loaded correctly is to be located within the same directory as xhtml-video-embed.php. However, this solution is slower than the previous hardcoded path. It has Windows or *NIX specific code depending on the detected platform, but fortunately the path is cached if there are more than one embedded FLV files per page, thus the overall speed is be better.
+
+v0.2.4	* 03-Jun-2008 * This is just a v0.2.x 'branch' release which includes the support for FLV embedding. This modification will be merged into the v0.3 development version as well. Thanks to David M (http://www.davidmorefield.com/journal/) for suggesting this feature.
+<-- Branched
+
+v0.2.3.3* 15-Mar-2008 * This release is another small patch. I did a global replace of the word plugin with plug-in (which is correct BTW), but the pluginspace attribute of one of the param tags of the object was affected by this mass edit. Usually this isn't a big deal since in most of the cases it should work fine, but it won't display the stuff that it should displat if Flash Player can't be found. PS: I forgot to mention, where are my good manners: thanks justGREAT (http://blog.justgreat.nl/) for pointing out the previous issue (fixed in 0.2.3.2). Another small notice: I know you are bored to death to see only patches instead of a new release, but I didn't have time for it. I have plans for v0.3 which will bring more stuff and sweet things.
+
+v0.2.3.2* 08-Mar-2008 * Making a small update in order to fix a YouTube security policy. Now the plug-in should work fine with permalinks which have hyphen, "-", in the video ID.
+
+v0.2.3.1* 27-Feb-2008 * Making a small update in order to fix a YouTube security policy. Now the plug-in should work fine with permalinks which have underscore, "_", in the video ID.
+
+v0.2.3	* 25-Feb-2008 * Adding some collapsible sections into the admin panel in order to use the available space more efficient. Added support for Dailymotion, MySpace TV, Revver, Spike (ex iFilm), and Vimeo. Added another tag for Trilulilu Image as the original tag which preserves the Trilulilu compatibility sounds weird in English as it uses a Romanian word for "image". The old tag has been preserved for backward and Trilulilu's own plug-in compatibility sake. The custom unified sizes are now more usable since I added some little JavaScript. I also improved the security of the plug-in: all the video IDs are checked and the disallowed chars are stripped. Please report any issue if this feature is too restrictive. Also updated the readme.txt file with more information. Added quality parameter which defaults to "best".
+
+v0.2.2	* 19-Feb-2008 * Another small fix for the function that creates the flash object. Fixed some typos from the interface. The fixes were merged into the v0.2.1 as well. Added support for custom width/height: unified width, unified video/image height, unified audio height. Use it well.
+		* 24-Feb-2008 * Fixed the last bugs before releasing the version. The development version was a bugged BETA which didn't function well.
+		
+
+v0.2.1	* 13-Feb-2008 * Small fix for some of the WordPress themes which you can find out there ... the credit link was wrongfully displayed, thanks roberto (http://roberto.ro/blog/) for pointing it out.
+
+v0.2	* 04-Feb-2008 * Added new feature: generic SWF support. Added admin 'Options' panel in order to disable the features which you don't use. Added support for 'show credits' if you would like to display the credit for this plug-in when you use a flash object inserted by XVE. The plug-in's code is more efficient so the further development of XVE is improved.
+
+v0.1	* 02-Feb-2008 * Initial release. Features: YouTube.com, GoogleVideo.com, Metacafe.com, Trilulilu.ro - video support, Trilulilu.ro - audio support, Trilulilu.ro - image support.
