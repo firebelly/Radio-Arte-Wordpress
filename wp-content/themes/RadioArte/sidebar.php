@@ -43,7 +43,7 @@
 		
 
 		?>
-		
+		<?php SidebarEventsList(3);?>
 		<p><?= "this is where the twitter update goes" ?>
 		 <a href="http://twitter.com/status/<?= 12321312 ?>"><?= "2 days ago" ?></a></p>
 	</div>

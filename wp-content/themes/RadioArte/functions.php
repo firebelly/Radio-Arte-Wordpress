@@ -1,12 +1,5 @@
 <?php
 
-if ( function_exists('register_sidebar') )
-    register_sidebar(array(
-        'before_widget' => '',
-        'after_widget' => '',
-        'before_title' => '<div class="title">',
-        'after_title' => '</div>',
-    ));
 	
 	function get_category_id_by_name($name){
 		$cat_array = array("WRTE Productions"=>4,
