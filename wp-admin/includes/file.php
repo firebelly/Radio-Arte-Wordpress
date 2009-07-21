@@ -296,6 +296,7 @@ function wp_handle_upload( &$file, $overrides = false, $time = null ) {
 
 	// Move the file to the uploads dir
 	$new_file = $uploads['path'] . "/$filename";
+	//print_r(move_uploaded_file( $file['tmp_name'], $new_file ));
 	if ( false === @ move_uploaded_file( $file['tmp_name'], $new_file ) ) {
 		return $upload_error_handler( $file, sprintf( __('The uploaded file could not be moved to %s.' ), $uploads['path'] ) );
 	}
@@ -307,7 +308,6 @@ function wp_handle_upload( &$file, $overrides = false, $time = null ) {
 
 	// Compute the URL
 	$url = $uploads['url'] . "/$filename";
-
 	return apply_filters( 'wp_handle_upload', array( 'file' => $new_file, 'url' => $url, 'type' => $type ) );
 }
 

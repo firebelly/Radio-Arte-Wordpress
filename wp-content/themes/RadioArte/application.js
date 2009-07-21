@@ -1,3 +1,30 @@
+(function($){
+	
+	$.fn.bigClickNYC = function(selector) {
+		var selector = selector || "a";
+		return this.each(function(){
+			$(this).click(function(e){
+				e.preventDefault();
+				if($(this).is("a"))
+					$(window).attr("location", $(this).attr("href"));
+				else if($(this).find("a").length > 0)
+					$(window).attr("location", $(this).find(selector).attr("href"));
+				else{
+					//do nothing NYC!
+				}
+			}).mouseenter(function(e){
+				$(this).css({cursor: "pointer"});
+				$(this).addClass("hover");
+			}).mouseleave(function(e){
+				$(this).removeClass("hover");
+			})
+		});
+	}
+	
+})(jQuery);
+
+
+
 jQuery.easing['jswing'] = jQuery.easing['swing'];
 
 jQuery.extend( jQuery.easing,
@@ -165,3 +192,8 @@ jQuery.extend( jQuery.easing,
  * OF THE POSSIBILITY OF SUCH DAMAGE. 
  *
  */
+
+jQuery(function() {
+	jQuery(".pod-entries li").bigClickNYC();
+})
+

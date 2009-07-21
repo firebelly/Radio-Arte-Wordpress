@@ -1,9 +1,7 @@
-<?php 
-?>
+
+
 
 <div  id="sidebar">
-	<?php if ( !function_exists('dynamic_sidebar')
-	        || !dynamic_sidebar() ) : ?>
 	
 	<div class="box" id="listenNow">
 		<h2>Listen Now!</h2>
@@ -43,15 +41,14 @@
 		
 
 		?>
-		<?php SidebarEventsList(3);?>
-		<p><?= "this is where the twitter update goes" ?>
-		 <a href="http://twitter.com/status/<?= 12321312 ?>"><?= "2 days ago" ?></a></p>
+		
+		<?php aktt_sidebar_tweets(); ?>
 	</div>
 	
 	<div class="box" id="flickrStream">
 		<h2>See Our Photo Gallery!</h2>
 		<a class="flickr_photo" href="http://www.flickr.com/photos/37902025@N04/">
-			<img src="images/side_flickr_photo.jpg">
+			<?php widget_quickflickr(array("title"=>"")); ?>
 		</a>
 		<a id="flickr_gallery" href="http://www.flickr.com/photos/37902025@N04/">go to flickr</a> 
 	</div>
@@ -65,10 +62,7 @@
 			<li id="myspace"><a href="http://www.myspace.com/wrte905fm">myspace</a></li>
 		</ul>
 	</div>
-	<!--
 	<div class="box" id="weather">
-		
+		<?php weather_display(); ?> 
 	</div>
--->
-	<?php endif; ?>
 </div>

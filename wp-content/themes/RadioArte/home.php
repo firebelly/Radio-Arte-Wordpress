@@ -9,12 +9,10 @@
 </style>	
 	
 <![endif]-->
-
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/application.js"></script>
 <script type="text/javascript">
 
-$(function() {
-	//$('#homepage-marquee').rockinSlideshow();
+jQuery(function() {
+	jQuery('#homepage-marquee').rockinSlideshow();
 });
 
 
@@ -137,10 +135,10 @@ $(function() {
 		</ul>
 		<h3 id="photo_caption"><span>Youth-Driven Public Radio</span></h3>
 	  </div>
-	  
-		<h1>WRTE Productions</h1>
+	  	<?php $wrte_productions_page = get_page_by_id(165); ?>
+		<h1><?= $wrte_productions_page["post_title"]; ?></h1>
 		
-		<p class=""><em class="homepage">Radio Arte&rsquo;s productions approach the issues that the young, local Latino&rsquo;s are forced to deal with daily.  </em></p>
+		<?= $wrte_productions_page["post_content"]; ?>
 		
 		<div id="homepage-productions" class="clearfix">
 		
@@ -172,26 +170,28 @@ $(function() {
 	<div id="homepage-news-and-events">
 		<div id="events">
 		  <p class="caption" style="height:35px"><em class="homepage">Upcoming events from Radio Arte&rsquo;s community calendar. We want to help promote you! Be sure to add your events.</em></p>
-  		<div id="event-list">
+  		<div class="event-list">
     		<h2 class="events">EVENTS</h2>
+			<?php SidebarEventsList(3);?>
     		<ul>
-    		  <?php echo events_sidebar(); ?>
-    		  <a class="link-with-arrow" href="#">View Full Calendar</a>
+				
+    		  <li><a class="link-with-arrow" href="/calendar">View Full Calendar</a></li>
     		</ul>
       </div>
     </div>
     
     <div id="news">
       <p class="caption" style="height:35px"><em class="homepage">Today&rsquo;s Headlines pulled from cnn.com  </em></p>
-  		<div id="event-list">
+  		<div class="event-list">
   		  <h2 class="news">NEWS</h2>
-    		<ul>
-    		  <li>6/29: Recent Headline</li>
-    		  <li>6/29: Recent Headline</li>
-    		  <li>6/29: Recent Headline</li>
-    		  <li>6/29: Recent Headline</li>
-    		  <li>6/29: Recent Headline</li>
-    		  <a class="link-with-arrow" href="#">View Full Calendar</a>
+		<?php $news = new WP_Query(array("category_name"=>"News")); ?>
+		<ul>
+			<?php while($news->have_posts()) : $news->the_post(); ?>
+				
+				<li><a href="<?php echo(get_post_meta($news->post->ID, 'link_url', true)); ?>"><?= $news->post->post_title; ?></a></li>
+				
+			<?php endwhile; ?>
+		
     		</ul>
     	</div>
   	</div>

@@ -196,7 +196,6 @@ function media_handle_upload($file_id, $post_id, $post_data = array()) {
 
 	$name = $_FILES[$file_id]['name'];
 	$file = wp_handle_upload($_FILES[$file_id], $overrides, $time);
-
 	if ( isset($file['error']) )
 		return new WP_Error( 'upload_error', $file['error'] );
 

@@ -59,18 +59,18 @@ div#TB_title a, div#TB_title a:visited {
 	display: block;
 	padding: 2px 0 0 2px;
 	line-height: 11pt;
-	color: navy;
+	color: #666;
 }
 #wp-calendarLarge .dayHead {
 	/* background-color: #333333;
 */
-	background-color: #173b6d;
+	background-color: #6b2985;
 	color: white;
 	font-weight: bold;
 	z-index: 1000;
 }
 #todayLarge {
-	background-color: #9BA9CF;
+	background-color: #d7d6cf !important;
 	color: #FFF;
 }
 /* * Days events calendar */
@@ -107,7 +107,7 @@ div#TB_title a, div#TB_title a:visited {
 	text-align: center;
 	font-weight: bold;
 	background-color: white;
-	border: thin solid darkgray;
+	border: thin solid #666;
 	-moz-border-radius: 3px 3px 0 0;
 }
 #wp-calendar {
@@ -120,7 +120,7 @@ div#TB_title a, div#TB_title a:visited {
 #wp-calendar #today {
 	display: block;
 	font-weight: bold;
-	background-color: #a8c3d6;
+	background-color: #14bae7 !important;
 	-moz-border-radius: 50%;
 	/* -webkit-border-radius: 50%;
 	border: 2px solid blue;
@@ -132,10 +132,10 @@ div#TB_title a, div#TB_title a:visited {
 }
 #wp-calendar .padcent {
 	background-color: white;
-	border: thin solid darkgray;
+	border: thin solid #666;
 }
 #wp-calendar .padday {
-	background-color: gainsboro;
+	background-color: #666;;
 }
 #wp-calendar th {
 	width: 11%;
@@ -143,24 +143,9 @@ div#TB_title a, div#TB_title a:visited {
 	background-color: #173b6d;
 }
 #wp-calendar td {
-	border: thin solid darkgray;
+	border: thin solid #666;
 	background-color: white;
 	text-align: center;
-}
-/* * Widget List Calendar OPTIONAL */
-#events-calendar-list li {
-	font-family: Arial, Tahoma, Script;
-	font-size: small;
-	font-stretch: condensed;
-	list-style-image: url(../images/list.gif);
-	line-height: normal;
-	text-align: left;
-}
-#events-calendar-list li a:link, #events-calendar-list li a:visited, #events-calendar-list li a:hover, #events-calendar-list li a:active {
-	background: none;
-	text-decoration: none;
-	border: none;
-	color: dimgray;
 }
 
 #tooltip.pretty {
