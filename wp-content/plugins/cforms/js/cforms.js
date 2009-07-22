@@ -16,7 +16,7 @@ Copyright 2007, 2008, 2009 OLIVER SEIDEL  (email : oliver.seidel @ deliciousdays
 
 // ONLY in case AJAX DOESN'T work you may want to double-check this path:
 // If you do change this setting: CLEAR your BROWSER CACHE & RESTART you BROWSER!
-var sajax_uri = 'http://radioarte_wp.dev/wp-content/plugins/cforms/lib_ajax.php';
+var sajax_uri = 'http://radio_arte_wp.dev/wp-content/plugins/cforms/lib_ajax.php';
 
 
 // No need to change anything here:

@@ -169,7 +169,7 @@ jQuery(function() {
 
 	<div id="homepage-news-and-events">
 		<div id="events">
-		  <p class="caption" style="height:35px"><em class="homepage">Upcoming events from Radio Arte&rsquo;s community calendar. We want to help promote you! Be sure to add your events.</em></p>
+		  <p class="caption" style="height:35px"><em class="homepage">Upcoming events from Radio Arte&rsquo;s community calendar. We want to help promote you! Be sure to <a href="/add-your-event">add your events</a>.</em></p>
   		<div class="event-list">
     		<h2 class="events">EVENTS</h2>
 			<?php SidebarEventsList(3);?>
@@ -181,10 +181,10 @@ jQuery(function() {
     </div>
     
     <div id="news">
-      <p class="caption" style="height:35px"><em class="homepage">Today&rsquo;s Headlines pulled from cnn.com  </em></p>
+      <p class="caption" style="height:35px"><em class="homepage">Today&rsquo;s Headlines pulled from cnn.com and other news sources around the web</em></p>
   		<div class="event-list">
   		  <h2 class="news">NEWS</h2>
-		<?php $news = new WP_Query(array("category_name"=>"News")); ?>
+		<?php $news = new WP_Query(array("category_name"=>"News", "showposts"=>5)); ?>
 		<ul>
 			<?php while($news->have_posts()) : $news->the_post(); ?>
 				

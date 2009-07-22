@@ -1,1 +1,1 @@
-<?php $abspath = '/Users/keithally/Sites/Radio-Arte-Wordpress/'; ?>
+<?php $abspath = '/Users/keith/Sites/Radio-Arte-Wordpress/'; ?>
